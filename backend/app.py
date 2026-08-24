@@ -25,11 +25,19 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Database configuration
-DB_PATH = "../database/iris_auth.db"
-TEMPLATES_PATH = "../database/templates"
+# Database configuration
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASE_DIR = os.path.join(BASE_DIR, "database")
+
+DB_PATH = os.path.join(DATABASE_DIR, "iris_auth.db")
+TEMPLATES_PATH = os.path.join(DATABASE_DIR, "templates")
+
+# Create database and templates directories if they don't exist
+os.makedirs(DATABASE_DIR, exist_ok=True)
+os.makedirs(TEMPLATES_PATH, exist_ok=True)
 
 # Create templates directory if not exists
-os.makedirs(TEMPLATES_PATH, exist_ok=True)
+#os.makedirs(TEMPLATES_PATH, exist_ok=True)
 
 
 # ===================== DATABASE SETUP =====================
@@ -97,8 +105,8 @@ def init_database():
     conn.commit()
     conn.close()
     logger.info("Database initialized successfully")
-
-
+# Initialize database when application starts
+init_database()
 # ===================== IRIS PROCESSING =====================
 
 def preprocess_iris(image_array):
@@ -733,8 +741,6 @@ def get_stats():
 # ===================== MAIN =====================
 
 if __name__ == '__main__':
-    # Initialize database
-    init_database()
     
     logger.info("🔐 Iris Authentication System - Backend Started")
     logger.info("📊 Available Endpoints:")
