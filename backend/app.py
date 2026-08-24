@@ -2,7 +2,7 @@
 Iris Authentication System - Backend
 Advanced biometric iris recognition with Flask REST API
 """
-
+import os
 import cv2
 import numpy as np
 import os
@@ -749,4 +749,9 @@ if __name__ == '__main__':
     logger.info("  GET    /health - Health check")
     
     # Run Flask app
-    app.run(host='0.0.0.0', port=5000, debug=False)
+
+app.run(
+    host='0.0.0.0',
+    port=int(os.environ.get('PORT', 5000)),
+    debug=False
+)
