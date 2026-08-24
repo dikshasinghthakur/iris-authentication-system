@@ -1,7 +1,7 @@
 # 🔐 Iris Authentication System v1.0
-
+while you're accessing the demo you have to wait for 50 seconds to respond the site for deployment I use render.
 > Advanced biometric iris recognition with REST API, desktop GUI, and comprehensive database management
-## [Demo Link](https://dikshasinghthakur.github.io/iris-authentication-system/)
+## [Demo Link](https://iris-authentication-frontend.onrender.com)
 ## ✨ Features
 
 ### 🎯 Core Functionality
