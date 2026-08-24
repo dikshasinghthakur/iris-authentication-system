@@ -1,6 +1,6 @@
 import './style.css'
 
-const API_URL = 'http://127.0.0.1:5000'
+const API_URL = 'https://iris-authentication-system-aa69.onrender.com'
 
 document.querySelector('#app').innerHTML = `
   <div class="container">
